@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TEAM NSE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#050816;
+    position:relative;
+}
+
+/* Animated Background */
+body::before{
+    content:'';
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:linear-gradient(45deg,#00f0ff,#8a2eff,#ff00c8);
+    border-radius:50%;
+    filter:blur(140px);
+    animation:move 10s infinite alternate;
+    opacity:0.5;
+}
+
+@keyframes move{
+    0%{
+        transform:translate(-200px,-100px);
+    }
+    100%{
+        transform:translate(200px,100px);
+    }
+}
+
+.container{
+    position:relative;
+    width:360px;
+    padding:35px 25px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.12);
+    box-shadow:0 0 40px rgba(0,0,0,0.5);
+    text-align:center;
+    z-index:10;
+}
+
+/* Logo */
+.logo{
+    width:110px;
+    height:110px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(135deg,#00e5ff,#7b2cff,#ff00c8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:38px;
+    font-weight:800;
+    color:#fff;
+    box-shadow:
+        0 0 25px #00e5ff,
+        0 0 50px #7b2cff;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+/* Shimmer Text */
+.shimmer{
+    margin-top:25px;
+    font-size:38px;
+    font-weight:800;
+    letter-spacing:3px;
+    background:linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #00e5ff 25%,
+        #ffffff 50%,
+        #ff00c8 75%,
+        #ffffff 100%
+    );
+    background-size:400%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:shine 4s linear infinite;
+}
+
+@keyframes shine{
+    0%{
+        background-position:0%;
+    }
+    100%{
+        background-position:400%;
+    }
+}
+
+.subtitle{
+    margin-top:10px;
+    color:#cfcfcf;
+    font-size:15px;
+    letter-spacing:2px;
+}
+
+/* Buttons */
+.buttons{
+    margin-top:35px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.btn{
+    position:relative;
+    overflow:hidden;
+    text-decoration:none;
+    padding:16px;
+    border-radius:18px;
+    font-size:17px;
+    font-weight:700;
+    color:#fff;
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.2);
+    backdrop-filter:blur(10px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+.btn::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.7),
+        transparent
+    );
+    animation:shimmer 2.5s infinite;
+}
+
+@keyframes shimmer{
+    100%{
+        left:120%;
+    }
+}
+
+.register{
+    background:linear-gradient(135deg,#00e5ff,#0077ff);
+}
+
+.teacher{
+    background:linear-gradient(135deg,#ff00c8,#7b2cff);
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    box-shadow:
+        0 0 25px rgba(255,255,255,0.2),
+        0 0 45px rgba(0,229,255,0.4);
+}
+
+.glow{
+    position:absolute;
+    inset:0;
+    border-radius:30px;
+    padding:1px;
+    background:linear-gradient(45deg,#00e5ff,#7b2cff,#ff00c8,#00e5ff);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    animation:borderGlow 4s linear infinite;
+}
+
+@keyframes borderGlow{
+    100%{
+        filter:hue-rotate(360deg);
+    }
+}
+
+.footer{
+    margin-top:25px;
+    color:#9c9c9c;
+    font-size:12px;
+    letter-spacing:1px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="glow"></div>
+
+    <div class="logo">
+        NSE
+    </div>
+
+    <div class="shimmer">
+        TEAM NSE
+    </div>
+
+    <div class="subtitle">
+        PREMIUM VIP PREDICTION
+    </div>
+
+    <div class="buttons">
+
+        <a class="btn register"
+        href="https://13lwin9.com/register?inviteCode=AJDMZ4N&from=web">
+            REGISTER
+        </a>
+
+        <a class="btn teacher"
+        href="https://t.me/VISHAKHA_13LGAME">
+            TEACHER ID PVT
+        </a>
+
+    </div>
+
+    <div class="footer">
+        © TEAM NSE • ALL RIGHTS RESERVED
+    </div>
+
+</div>
+
+</body>
+</html>
