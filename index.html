@@ -1,254 +1,1099 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TEAM NSE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>ULTIMATE INJECTOR X</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+user-select:none;
+font-family:'Inter',sans-serif;
 }
 
 body{
-    height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#050816;
-    position:relative;
+width:100vw;
+height:100vh;
+overflow:hidden;
+background:#02030d;
 }
 
-/* Animated Background */
-body::before{
-    content:'';
-    position:absolute;
-    width:600px;
-    height:600px;
-    background:linear-gradient(45deg,#00f0ff,#8a2eff,#ff00c8);
-    border-radius:50%;
-    filter:blur(140px);
-    animation:move 10s infinite alternate;
-    opacity:0.5;
+/* FULL PARTICLES */
+
+#particles{
+position:fixed;
+inset:0;
+overflow:hidden;
+z-index:0;
 }
 
-@keyframes move{
-    0%{
-        transform:translate(-200px,-100px);
-    }
-    100%{
-        transform:translate(200px,100px);
-    }
-}
-
-.container{
-    position:relative;
-    width:360px;
-    padding:35px 25px;
-    border-radius:30px;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,0.12);
-    box-shadow:0 0 40px rgba(0,0,0,0.5);
-    text-align:center;
-    z-index:10;
-}
-
-/* Logo */
-.logo{
-    width:110px;
-    height:110px;
-    margin:auto;
-    border-radius:50%;
-    background:linear-gradient(135deg,#00e5ff,#7b2cff,#ff00c8);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:38px;
-    font-weight:800;
-    color:#fff;
-    box-shadow:
-        0 0 25px #00e5ff,
-        0 0 50px #7b2cff;
-    animation:float 3s ease-in-out infinite;
+.particle{
+position:absolute;
+border-radius:50%;
+animation:float linear infinite;
+opacity:.8;
 }
 
 @keyframes float{
-    0%,100%{
-        transform:translateY(0px);
-    }
-    50%{
-        transform:translateY(-10px);
-    }
+0%{
+transform:translateY(100vh) scale(0);
+opacity:0;
+}
+15%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) scale(1);
+opacity:0;
+}
 }
 
-/* Shimmer Text */
-.shimmer{
-    margin-top:25px;
-    font-size:38px;
-    font-weight:800;
-    letter-spacing:3px;
-    background:linear-gradient(
-        90deg,
-        #ffffff 0%,
-        #00e5ff 25%,
-        #ffffff 50%,
-        #ff00c8 75%,
-        #ffffff 100%
-    );
-    background-size:400%;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation:shine 4s linear infinite;
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%,rgba(255,0,255,.15),transparent 25%),
+radial-gradient(circle at 80% 30%,rgba(0,255,255,.15),transparent 25%),
+radial-gradient(circle at 50% 90%,rgba(0,255,100,.12),transparent 30%);
+animation:bgMove 10s linear infinite alternate;
+z-index:0;
 }
 
-@keyframes shine{
-    0%{
-        background-position:0%;
-    }
-    100%{
-        background-position:400%;
-    }
+@keyframes bgMove{
+0%{
+transform:scale(1);
+}
+100%{
+transform:scale(1.08);
+}
 }
 
-.subtitle{
-    margin-top:10px;
-    color:#cfcfcf;
-    font-size:15px;
-    letter-spacing:2px;
+/* SELECT SCREEN */
+
+#selectScreen{
+position:fixed;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:10;
 }
 
-/* Buttons */
-.buttons{
-    margin-top:35px;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+.selectBox{
+width:370px;
+padding:20px;
+border-radius:28px;
+background:rgba(8,12,28,.88);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:
+0 0 50px rgba(0,255,255,.18),
+0 0 70px rgba(255,0,255,.12);
+position:relative;
+overflow:hidden;
 }
 
-.btn{
-    position:relative;
-    overflow:hidden;
-    text-decoration:none;
-    padding:16px;
-    border-radius:18px;
-    font-size:17px;
-    font-weight:700;
-    color:#fff;
-    transition:0.3s;
-    border:1px solid rgba(255,255,255,0.2);
-    backdrop-filter:blur(10px);
-    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+.selectBox::before{
+content:'';
+position:absolute;
+inset:-2px;
+border-radius:30px;
+background:linear-gradient(90deg,#00ffff,#ff00ff,#00ff88,#ffff00,#00ffff);
+background-size:400% 400%;
+animation:rgb 5s linear infinite;
+filter:blur(8px);
+z-index:-1;
 }
 
-.btn::before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:100%;
-    height:100%;
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,0.7),
-        transparent
-    );
-    animation:shimmer 2.5s infinite;
+@keyframes rgb{
+0%{
+background-position:0% 50%;
+}
+100%{
+background-position:400% 50%;
+}
 }
 
-@keyframes shimmer{
-    100%{
-        left:120%;
-    }
+.heading{
+font-family:'Orbitron',sans-serif;
+font-size:26px;
+font-weight:800;
+text-align:center;
+margin-bottom:18px;
+background:linear-gradient(90deg,#00ffff,#ff00ff);
+-webkit-background-clip:text;
+color:transparent;
+letter-spacing:2px;
 }
 
-.register{
-    background:linear-gradient(135deg,#00e5ff,#0077ff);
+.gameGrid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-bottom:18px;
 }
 
-.teacher{
-    background:linear-gradient(135deg,#ff00c8,#7b2cff);
+.gameBtn{
+height:58px;
+border:none;
+border-radius:16px;
+background:rgba(255,255,255,.05);
+color:#fff;
+font-size:12px;
+font-weight:700;
+cursor:pointer;
+transition:.25s;
+position:relative;
+overflow:hidden;
 }
 
-.btn:hover{
-    transform:scale(1.05);
-    box-shadow:
-        0 0 25px rgba(255,255,255,0.2),
-        0 0 45px rgba(0,229,255,0.4);
+.gameBtn.active{
+background:linear-gradient(135deg,#00ffff33,#ff00ff44);
+border:1px solid #00ffff;
+box-shadow:0 0 18px rgba(0,255,255,.5);
+transform:scale(1.03);
 }
 
-.glow{
-    position:absolute;
-    inset:0;
-    border-radius:30px;
-    padding:1px;
-    background:linear-gradient(45deg,#00e5ff,#7b2cff,#ff00c8,#00e5ff);
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite:xor;
-    mask-composite:exclude;
-    animation:borderGlow 4s linear infinite;
+.urlInput{
+width:100%;
+height:58px;
+border:none;
+outline:none;
+border-radius:18px;
+padding:0 18px;
+font-size:14px;
+color:#fff;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+margin-bottom:18px;
 }
 
-@keyframes borderGlow{
-    100%{
-        filter:hue-rotate(360deg);
-    }
+.urlInput::placeholder{
+color:#9eb0c8;
 }
 
-.footer{
-    margin-top:25px;
-    color:#9c9c9c;
-    font-size:12px;
-    letter-spacing:1px;
+.startBtn{
+width:100%;
+height:60px;
+border:none;
+border-radius:18px;
+background:linear-gradient(135deg,#00ffaa,#00ffff);
+font-size:15px;
+font-weight:800;
+color:#001d1d;
+cursor:pointer;
+box-shadow:0 0 30px rgba(0,255,255,.35);
 }
+
+/* FULL GAME SCREEN */
+
+#gameScreen{
+position:fixed;
+inset:0;
+display:none;
+background:#000;
+z-index:50;
+}
+
+/* URL SCREEN */
+
+#gameFrame{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+border:none;
+background:#000;
+}
+
+/* FLOATING CIRCLE */
+
+#floatingCircle{
+position:fixed;
+width:80px;
+height:80px;
+border-radius:50%;
+background:linear-gradient(135deg,#00ffff,#ff00ff);
+display:none;
+align-items:center;
+justify-content:center;
+font-size:13px;
+font-weight:800;
+color:#fff;
+z-index:99999;
+top:120px;
+left:20px;
+cursor:move;
+box-shadow:
+0 0 25px #00ffff,
+0 0 45px #ff00ff;
+animation:pulse 2s infinite;
+}
+
+#floatingCircle::before{
+content:'';
+position:absolute;
+inset:-4px;
+border-radius:50%;
+border:2px solid rgba(255,255,255,.5);
+animation:spin 5s linear infinite;
+}
+
+@keyframes pulse{
+0%,100%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.08);
+}
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+/* FLOATING INJECTOR */
+
+#main-widget{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(.8);
+width:220px;
+height:220px;
+background:radial-gradient(circle at 40% 30%,#0a0525,#02010f);
+border-radius:24px;
+overflow:hidden;
+box-shadow:
+0 0 40px rgba(0,255,255,.25),
+inset 0 0 30px rgba(255,100,255,.15);
+border:1px solid rgba(100,255,255,.4);
+display:none;
+z-index:9999;
+animation:breathing 4s ease-in-out infinite;
+}
+
+@keyframes breathing{
+0%,100%{
+transform:translate(-50%,-50%) scale(1);
+}
+50%{
+transform:translate(-50%,-50%) scale(1.015);
+}
+}
+
+#main-widget::before{
+content:'';
+position:absolute;
+inset:-2px;
+border-radius:26px;
+background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
+background-size:300% 300%;
+animation:rgbRotate 3s linear infinite;
+z-index:-1;
+filter:blur(4px);
+opacity:.7;
+}
+
+@keyframes rgbRotate{
+0%{
+background-position:0% 50%;
+}
+100%{
+background-position:300% 50%;
+}
+}
+
+.glass-core{
+position:absolute;
+inset:8px;
+background:rgba(10,8,35,.75);
+border-radius:18px;
+backdrop-filter:blur(12px);
+border:1px solid rgba(150,255,255,.2);
+overflow:hidden;
+z-index:1;
+}
+
+.neon-particles{
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at 20% 30%,rgba(0,255,200,.6) 1px,transparent 2px),
+radial-gradient(circle at 70% 60%,rgba(255,80,255,.6) 1px,transparent 2px),
+radial-gradient(circle at 45% 80%,rgba(255,220,80,.5) 1px,transparent 2px);
+background-size:80px 80px,110px 110px,70px 70px;
+animation:particleFloat 15s linear infinite;
+opacity:.4;
+}
+
+@keyframes particleFloat{
+0%{
+background-position:0 0;
+}
+100%{
+background-position:80px 80px;
+}
+}
+
+.scanlines{
+position:absolute;
+inset:0;
+background:repeating-linear-gradient(
+to bottom,
+transparent 0px,
+transparent 3px,
+rgba(0,255,255,.08) 3px,
+rgba(0,255,255,.08) 5px
+);
+animation:scanMove 6s linear infinite;
+}
+
+@keyframes scanMove{
+0%{
+background-position:0 0;
+}
+100%{
+background-position:0 120px;
+}
+}
+
+.header{
+position:relative;
+z-index:10;
+padding:10px 14px 6px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(100,255,255,.2);
+}
+
+.title{
+font-family:'Orbitron',sans-serif;
+font-size:10px;
+font-weight:700;
+letter-spacing:1.5px;
+background:linear-gradient(90deg,#00ffff,#ff00ff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.period{
+font-family:monospace;
+font-size:10px;
+color:#a0ffcc;
+background:rgba(0,255,150,.15);
+padding:2px 8px;
+border-radius:20px;
+border:1px solid rgba(0,255,150,.4);
+}
+
+#prediction-container{
+position:relative;
+z-index:10;
+text-align:center;
+padding:12px 0 8px;
+height:78px;
+}
+
+#prediction{
+font-family:'Orbitron',sans-serif;
+font-size:42px;
+font-weight:700;
+letter-spacing:4px;
+background:linear-gradient(90deg,#00ffcc,#ff00ff,#ffff00);
+-webkit-background-clip:text;
+color:transparent;
+text-shadow:
+0 0 20px rgba(0,255,200,.9),
+0 0 40px rgba(255,0,255,.7);
+animation:predictionPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes predictionPulse{
+0%,100%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.08);
+}
+}
+
+.stats-row{
+position:relative;
+z-index:10;
+display:flex;
+justify-content:center;
+gap:18px;
+padding:0 12px;
+}
+
+.stat-circle{
+width:62px;
+height:62px;
+border-radius:50%;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+
+.win-ring{
+position:absolute;
+inset:0;
+border:3px solid transparent;
+border-top-color:#00ff88;
+border-right-color:#00ff88;
+border-radius:50%;
+animation:spinRing 8s linear infinite;
+}
+
+.loss-ring{
+position:absolute;
+inset:0;
+border:3px solid transparent;
+border-top-color:#ff3366;
+border-right-color:#ff3366;
+border-radius:50%;
+animation:spinRing 10s linear infinite reverse;
+}
+
+@keyframes spinRing{
+100%{
+transform:rotate(360deg);
+}
+}
+
+.stat-value{
+font-size:18px;
+font-weight:700;
+line-height:1;
+}
+
+.win .stat-value{
+color:#00ffaa;
+}
+
+.loss .stat-value{
+color:#ff4477;
+}
+
+.stat-label{
+font-size:8px;
+margin-top:2px;
+opacity:.8;
+}
+
+.accuracy-container{
+position:relative;
+width:54px;
+height:54px;
+margin-top:-8px;
+}
+
+.accuracy-ring{
+position:absolute;
+inset:0;
+border-radius:50%;
+background:conic-gradient(#00ffff 0% var(--progress),rgba(255,255,255,.1) var(--progress) 100%);
+box-shadow:0 0 20px #00ffff;
+}
+
+.accuracy-inner{
+position:absolute;
+inset:6px;
+background:#0a0525;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:13px;
+font-weight:700;
+color:#00ffff;
+}
+
+#history{
+position:absolute;
+bottom:12px;
+left:12px;
+right:12px;
+height:48px;
+display:flex;
+gap:6px;
+z-index:10;
+overflow:hidden;
+}
+
+.history-item{
+flex:1;
+height:100%;
+background:rgba(255,255,255,.06);
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:13px;
+font-weight:600;
+}
+
+.history-item.win{
+background:rgba(0,255,120,.25);
+color:#00ffaa;
+}
+
+.history-item.loss{
+background:rgba(255,60,100,.25);
+color:#ff6699;
+}
+
+#closeInjector{
+position:absolute;
+top:8px;
+right:8px;
+width:26px;
+height:26px;
+border:none;
+border-radius:50%;
+background:rgba(255,0,80,.2);
+color:#ff5577;
+font-size:13px;
+font-weight:700;
+z-index:99;
+cursor:pointer;
+}
+
 </style>
 </head>
+
 <body>
 
-<div class="container">
-    
-    <div class="glow"></div>
+<div id="particles"></div>
 
-    <div class="logo">
-        NSE
-    </div>
+<!-- SELECT SCREEN -->
 
-    <div class="shimmer">
-        TEAM NSE
-    </div>
+<div id="selectScreen">
 
-    <div class="subtitle">
-        PREMIUM VIP PREDICTION
-    </div>
+<div class="selectBox">
 
-    <div class="buttons">
+<div class="heading">
+INJECTOR X
+</div>
 
-        <a class="btn register"
-        href="https://13lwin9.com/register?inviteCode=AJDMZ4N&from=web">
-            REGISTER
-        </a>
+<div class="gameGrid">
 
-        <a class="btn teacher"
-        href="https://t.me/VISHAKHA_13LGAME">
-            TEACHER ID PVT
-        </a>
+<button class="gameBtn">TASHANWIN (FREE)</button>
+<button class="gameBtn">GOA GAME (FREE)</button>
 
-    </div>
+<button class="gameBtn">TIRANGA (FREE)</button>
+<button class="gameBtn">51 GAME</button>
 
-    <div class="footer">
-        © TEAM NSE • ALL RIGHTS RESERVED
-    </div>
+<button class="gameBtn">13L GAME</button>
+<button class="gameBtn">SONSY GAME</button>
+
+<button class="gameBtn">6 CLUB</button>
 
 </div>
+
+<input type="text" id="urlInput" class="urlInput" placeholder="ENTER GAME URL">
+
+<button class="startBtn" id="startBtn">
+START URL
+</button>
+
+</div>
+</div>
+
+<!-- GAME SCREEN -->
+
+<div id="gameScreen">
+
+<iframe id="gameFrame"></iframe>
+
+</div>
+
+<!-- FLOATING CIRCLE -->
+
+<div id="floatingCircle">
+OPEN
+</div>
+
+<!-- FLOATING INJECTOR -->
+
+<div id="main-widget">
+
+<button id="closeInjector">✕</button>
+
+<div class="glass-core">
+
+<div class="neon-particles"></div>
+
+<div class="scanlines"></div>
+
+<div class="header">
+
+<div class="title" id="injectorGameName">
+CHROMA•AI
+</div>
+
+<div id="currentPeriod" class="period">
+P0000
+</div>
+
+</div>
+
+<div id="prediction-container">
+
+<div id="prediction">
+BIG
+</div>
+
+<div style="font-size:9px;color:#88ffdd;letter-spacing:1px;margin-top:2px;">
+NEXT SIGNAL
+</div>
+
+</div>
+
+<div class="stats-row">
+
+<div class="stat-circle win">
+
+<div class="win-ring"></div>
+
+<div>
+<div id="totalWins" class="stat-value">
+00
+</div>
+
+<div class="stat-label">
+WINS
+</div>
+</div>
+
+</div>
+
+<div class="accuracy-container">
+
+<div class="accuracy-ring" id="accuracyRing" style="--progress:68%;"></div>
+
+<div class="accuracy-inner">
+
+<span id="accuracy">
+68.4%
+</span>
+
+</div>
+
+</div>
+
+<div class="stat-circle loss">
+
+<div class="loss-ring"></div>
+
+<div>
+<div id="totalLosses" class="stat-value">
+00
+</div>
+
+<div class="stat-label">
+LOSS
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="history"></div>
+
+</div>
+</div>
+
+<script>
+
+/* PARTICLES */
+
+const particles=document.getElementById("particles");
+
+for(let i=0;i<100;i++){
+
+const p=document.createElement("div");
+
+p.classList.add("particle");
+
+const size=Math.random()*5+2;
+
+p.style.width=size+"px";
+p.style.height=size+"px";
+
+p.style.left=Math.random()*100+"vw";
+
+p.style.animationDuration=(Math.random()*10+8)+"s";
+
+p.style.animationDelay=Math.random()*5+"s";
+
+const colors=[
+"#00ffff",
+"#ff00ff",
+"#00ff99",
+"#ffff00"
+];
+
+p.style.background=colors[Math.floor(Math.random()*colors.length)];
+
+particles.appendChild(p);
+
+}
+
+/* GAME SELECT */
+
+let selectedGame="";
+
+const gameBtns=document.querySelectorAll(".gameBtn");
+
+gameBtns.forEach(btn=>{
+
+btn.onclick=()=>{
+
+gameBtns.forEach(b=>b.classList.remove("active"));
+
+btn.classList.add("active");
+
+selectedGame=btn.innerText
+.replace("(FREE)","")
+.trim();
+
+document.getElementById("injectorGameName").innerText=
+selectedGame+"•AI";
+
+};
+
+});
+
+/* START */
+
+document.getElementById("startBtn").onclick=()=>{
+
+const url=document.getElementById("urlInput").value.trim();
+
+if(!url){
+alert("ENTER GAME URL");
+return;
+}
+
+if(!selectedGame){
+alert("SELECT GAME");
+return;
+}
+
+const finalUrl=url.startsWith("http")
+?url
+:"https://"+url;
+
+document.getElementById("gameFrame").src=finalUrl;
+
+document.getElementById("selectScreen").style.display="none";
+
+document.getElementById("gameScreen").style.display="block";
+
+document.getElementById("floatingCircle").style.display="flex";
+
+document.getElementById("main-widget").style.display="block";
+
+/* DOM STORAGE */
+
+localStorage.setItem("injector_game",selectedGame);
+
+localStorage.setItem("injector_url",finalUrl);
+
+};
+
+/* OPEN CLOSE */
+
+const floatingCircle=document.getElementById("floatingCircle");
+
+floatingCircle.onclick=()=>{
+
+document.getElementById("main-widget").style.display="block";
+
+};
+
+document.getElementById("closeInjector").onclick=()=>{
+
+document.getElementById("main-widget").style.display="none";
+
+};
+
+/* DRAG */
+
+let isDragging=false;
+
+let offsetX=0;
+let offsetY=0;
+
+floatingCircle.addEventListener("touchstart",e=>{
+
+isDragging=true;
+
+offsetX=e.touches[0].clientX-floatingCircle.offsetLeft;
+
+offsetY=e.touches[0].clientY-floatingCircle.offsetTop;
+
+});
+
+document.addEventListener("touchmove",e=>{
+
+if(!isDragging)return;
+
+floatingCircle.style.left=
+(e.touches[0].clientX-offsetX)+"px";
+
+floatingCircle.style.top=
+(e.touches[0].clientY-offsetY)+"px";
+
+});
+
+document.addEventListener("touchend",()=>{
+
+isDragging=false;
+
+});
+
+/* SCRIPT */
+
+async function fetchGameResult(){
+
+try{
+
+const payload={
+pageSize:10,
+pageNo:1,
+typeId:1,
+language:0,
+random:"4a0522c6ecd8410496260e686be2a57c",
+signature:"334B5E70A0C9B8918B0B15E517E2069C",
+timestamp:Math.floor(Date.now()/1000)
+};
+
+let response=await fetch("https://api.bdg88zf.com/api/webapi/GetNoaverageEmerdList",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(payload)
+});
+
+let data=await response.json();
+
+let latestResult=data?.data?.list?.[0];
+
+if(latestResult){
+
+return{
+period:latestResult.issueNumber,
+result:latestResult.number
+};
+
+}
+
+}catch(error){
+
+console.error(error);
+
+}
+
+return null;
+
+}
+
+function autoPredict(actualResult){
+
+let prediction=trendAnalysis(historyData);
+
+return{
+type:prediction
+};
+
+}
+
+async function updatePrediction(){
+
+let apiResult=await fetchGameResult();
+
+if(apiResult && apiResult.period!==lastFetchedPeriod){
+
+lastFetchedPeriod=apiResult.period;
+
+currentPeriod=(BigInt(apiResult.period)+1n).toString();
+
+let prediction=autoPredict(apiResult.result);
+
+document.getElementById("currentPeriod").innerText=
+"P"+currentPeriod.slice(-6);
+
+document.getElementById("prediction").innerText=
+prediction.type;
+
+historyData.unshift({
+period:currentPeriod,
+result:apiResult.result,
+prediction:prediction.type,
+resultStatus:"Pending"
+});
+
+updateHistory();
+
+checkWinLoss(apiResult);
+
+}
+
+}
+
+async function checkWinLoss(apiResult){
+
+historyData.forEach(item=>{
+
+if(item.period===apiResult.period){
+
+let actualResult=
+apiResult.result>=5
+?"BIG"
+:"SMALL";
+
+item.resultStatus=
+(item.prediction===actualResult)
+?"WIN"
+:"LOSS";
+
+}
+
+});
+
+updateStats();
+
+updateHistory();
+
+}
+
+function updateStats(){
+
+totalWins=
+historyData.filter(item=>item.resultStatus==="WIN").length;
+
+totalLosses=
+historyData.filter(item=>item.resultStatus==="LOSS").length;
+
+totalPredictions=
+historyData.length;
+
+correctPredictions=totalWins;
+
+document.getElementById("totalWins").innerText=
+String(totalWins).padStart(2,'0');
+
+document.getElementById("totalLosses").innerText=
+String(totalLosses).padStart(2,'0');
+
+document.getElementById("accuracy").innerText=
+calculateConfidence();
+
+const accValue=parseFloat(calculateConfidence());
+
+document.getElementById("accuracyRing")
+.style
+.setProperty('--progress',accValue+'%');
+
+}
+
+function calculateConfidence(){
+
+let confidence=
+(correctPredictions/totalPredictions)*100||0;
+
+return confidence.toFixed(1)+'%';
+
+}
+
+function updateHistory(){
+
+let historyDiv=document.getElementById("history");
+
+historyDiv.innerHTML="";
+
+historyData.slice(0,5).forEach(item=>{
+
+let resultClass=
+item.resultStatus==="WIN"
+?"win"
+:(item.resultStatus==="LOSS"
+?"loss"
+:"");
+
+let el=document.createElement("div");
+
+el.className=`history-item ${resultClass}`;
+
+el.innerText=item.prediction
+?item.prediction[0]
+:"?";
+
+historyDiv.appendChild(el);
+
+});
+
+}
+
+function trendAnalysis(data){
+
+return Math.random()>0.5
+?"BIG"
+:"SMALL";
+
+}
+
+let historyData=[];
+
+let lastFetchedPeriod=null;
+
+let currentPeriod="000000";
+
+let totalWins=0;
+
+let totalLosses=0;
+
+let totalPredictions=0;
+
+let correctPredictions=0;
+
+setInterval(()=>{
+
+updatePrediction();
+
+},3200);
+
+setTimeout(()=>{
+
+document.getElementById("currentPeriod").innerText=
+"P"+
+new Date().getMinutes().toString().padStart(4,'0');
+
+document.getElementById("prediction").innerText="BIG";
+
+updateHistory();
+
+},300);
+
+</script>
 
 </body>
 </html>
